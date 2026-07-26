@@ -3,5 +3,5 @@
     "transcripts_dir": "C:\\Users\\YOU\\.cursor\\projects\\YOUR-PROJECT-SLUG\\agent-transcripts",
     "plans_dir": "C:\\Users\\YOU\\.cursor\\plans",
     "rules_dir": "C:\\path\\to\\your\\repo\\.cursor\\rules",
-    "tracking_file": "C:\\path\\to\\tracking_cursor\\data\\tracking.json"
+    "tracking_file": "C:\\path\\to\\cursor_tracking\\data\\tracking.json"
 }

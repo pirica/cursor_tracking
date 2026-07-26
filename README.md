@@ -2,17 +2,17 @@
 
 Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and **project rules**.
 
-**URL (Laragon):** open in a new browser tab: [http://localhost/tracking_cursor/](http://localhost/tracking_cursor/)
+**URL (Laragon):** open in a new browser tab: [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/)
 
 ## Pages
 
 | Page | URL |
 |------|-----|
-| Home | [http://localhost/tracking_cursor/](http://localhost/tracking_cursor/) |
-| Chats | [http://localhost/tracking_cursor/chats.php](http://localhost/tracking_cursor/chats.php) |
-| Plans | [http://localhost/tracking_cursor/plans.php](http://localhost/tracking_cursor/plans.php) |
-| Rules | [http://localhost/tracking_cursor/rules.php](http://localhost/tracking_cursor/rules.php) |
-| Config | [http://localhost/tracking_cursor/settings.php](http://localhost/tracking_cursor/settings.php) |
+| Home | [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/) |
+| Chats | [http://localhost/cursor_tracking/chats.php](http://localhost/cursor_tracking/chats.php) |
+| Plans | [http://localhost/cursor_tracking/plans.php](http://localhost/cursor_tracking/plans.php) |
+| Rules | [http://localhost/cursor_tracking/rules.php](http://localhost/cursor_tracking/rules.php) |
+| Config | [http://localhost/cursor_tracking/settings.php](http://localhost/cursor_tracking/settings.php) |
 | Chat detail | `chat.php?id={uuid}` |
 | Plan detail | `plan.php?f={basename}.plan.md` |
 | Rule detail | `rule.php?f={basename}.mdc` |
@@ -41,8 +41,8 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 **Requires PHP 7.4+** (no Composer extensions beyond what Laragon/Apache already loads, e.g. `com_dotnet` for Explorer on Windows).
 
-1. Laragon serves `www` — app lives at `www/tracking_cursor/`.
-2. Paths: use **[Config](http://localhost/tracking_cursor/settings.php)** to edit and save (stored in `data/local_config.json`), or edit defaults in `config.php`.
+1. Laragon serves `www` — app lives at `www/cursor_tracking/`.
+2. Paths: use **[Config](http://localhost/cursor_tracking/settings.php)** to edit and save (stored in `data/local_config.json`), or edit defaults in `config.php`.
    - `transcripts_dir` — your project `agent-transcripts` path
    - `plans_dir` — e.g. `C:\Users\YOU\.cursor\plans`
    - `rules_dir` — e.g. `C:\…\it-management\.cursor\rules`

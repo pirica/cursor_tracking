@@ -57,6 +57,35 @@ function tct_shell_run_detached(string $cmd): bool
 }
 
 /**
+ * @return list<string>
+ */
+function tct_windows_explorer_select_exec_commands(string $realFile): array
+{
+    $realFile = str_replace('/', '\\', $realFile);
+    $quoted = tct_windows_quote_path($realFile);
+    $exploreFolder = tct_windows_quote_path(dirname($realFile));
+    $selectArg = '/select,' . $quoted;
+
+    return [
+        'cmd.exe /c start "" explorer.exe ' . $selectArg,
+        'explorer.exe ' . $selectArg,
+        'cmd.exe /c start "" explorer.exe ' . $exploreFolder,
+        'explorer.exe ' . $exploreFolder,
+    ];
+}
+
+function tct_windows_explorer_select_via_exec(string $realFile): bool
+{
+    foreach (tct_windows_explorer_select_exec_commands($realFile) as $cmd) {
+        if (tct_shell_run_detached($cmd)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
  * Launch Explorer on the interactive desktop (Windows).
  */
 function tct_windows_explorer_select_file(string $realFile): bool
@@ -65,8 +94,12 @@ function tct_windows_explorer_select_file(string $realFile): bool
     if (!is_file($realFile)) {
         return false;
     }
+
+    if (tct_windows_explorer_select_via_exec($realFile)) {
+        return true;
+    }
+
     $quoted = tct_windows_quote_path($realFile);
-    $exploreFolder = tct_windows_quote_path(dirname($realFile));
 
     if (class_exists('COM')) {
         try {
@@ -94,25 +127,13 @@ function tct_windows_explorer_select_file(string $realFile): bool
         return true;
     }
 
-    $commands = [
-        'explorer.exe /select,' . $quoted,
-        'cmd.exe /c start "" explorer.exe /select,' . $quoted,
-        'explorer.exe ' . $exploreFolder,
-        'cmd.exe /c start "" explorer.exe ' . $exploreFolder,
-    ];
-    foreach ($commands as $cmd) {
-        if (tct_shell_run_detached($cmd)) {
-            return true;
-        }
-    }
-
-    return false;
+    return tct_windows_explorer_select_via_exec($realFile);
 }
 
 function tct_windows_run_vbs_explorer_select(string $realFile): bool
 {
     $realFile = str_replace('/', '\\', $realFile);
-    $vbs = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'tracking_cursor_open_' . md5($realFile) . '.vbs';
+    $vbs = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'cursor_tracking_open_' . md5($realFile) . '.vbs';
   $content = <<<'VBS'
 Set args = WScript.Arguments
 path = args(0)
@@ -179,6 +200,9 @@ function tct_shell_open_folder(string $dir): bool
 
     if (DIRECTORY_SEPARATOR === '\\') {
         $quoted = tct_windows_quote_path($real);
+        if (tct_shell_run_detached('cmd.exe /c start "" explorer.exe ' . $quoted)) {
+            return true;
+        }
 
         return tct_shell_run_detached('explorer.exe ' . $quoted);
     }

@@ -87,7 +87,7 @@ function tct_app_base_url(): string
     $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
     $scheme = $https ? 'https' : 'http';
     $host = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
-    $script = (string) ($_SERVER['SCRIPT_NAME'] ?? '/tracking_cursor/settings.php');
+    $script = (string) ($_SERVER['SCRIPT_NAME'] ?? '/cursor_tracking/settings.php');
     $dir = str_replace('\\', '/', dirname($script));
     if ($dir === '/' || $dir === '.') {
         $dir = '';

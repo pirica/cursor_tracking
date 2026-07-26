@@ -11,7 +11,7 @@ function tct_render_header(string $pageTitle, string $activeNav, array $config):
     $project = (string) ($config['project_label'] ?? 'Cursor');
     $navItems = [
         'home' => ['href' => 'index.php', 'label' => 'Home'],
-        'chats' => ['href' => 'chats.php', 'label' => 'Chats'],
+        'chats' => ['href' => 'chats.php', 'label' => 'Transcripts'],
         'plans' => ['href' => 'plans.php', 'label' => 'Plans'],
         'rules' => ['href' => 'rules.php', 'label' => 'Rules'],
         'config' => ['href' => 'settings.php', 'label' => 'Config'],

@@ -92,7 +92,7 @@ tct_render_header('Config', 'config', $config);
                value="<?= tct_h((string) ($config['rules_dir'] ?? '')) ?>" required
                placeholder="C:\path\to\repo\.cursor\rules">
 
-        <label for="cfg-tracking">Chat tracking file</label>
+        <label for="cfg-tracking">Transcript tracking file</label>
         <input type="text" id="cfg-tracking" name="tracking_file" class="config-input config-input-path"
                value="<?= tct_h((string) ($config['tracking_file'] ?? '')) ?>" required>
 

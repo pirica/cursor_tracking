@@ -15,7 +15,7 @@ No Composer, npm, or test suite in this repo.
 ## Configuration
 
 - Defaults: `config.php` (auto-detects common Cursor paths on Linux/macOS; generic placeholders on Windows without overrides).
-- Overrides: `data/local_config.json` (edited via **Config** / `settings.php`). Copy from `data/local_config.json.example` if needed. This file is gitignored.
+- Overrides: `data/local_config.json` (edited via **Config** / `settings.php`, or committed for your machine). See `data/local_config.json.example` for a template.
 
 Keys: `project_label`, `transcripts_dir`, `plans_dir`, `rules_dir`, `tracking_file`.
 

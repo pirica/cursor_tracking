@@ -23,7 +23,7 @@ Keys: `project_label`, `transcripts_dir`, `plans_dir`, `rules_dir`, `tracking_fi
 
 Cloud Agents should use the committed `.cursor/environment.json`:
 
-- **Install** (`bash .cursor/install.sh`): ensures `php-cli` is available (idempotent).
+- **Install** (`bash .cursor/install.sh`): ensures `php-cli` and the `php-mbstring` extension are available (idempotent). `mbstring` is required — `lib/transcript_parse.php` uses `mb_strlen`/`mb_substr`, so transcript pages fatal-error without it.
 - **Start** (`bash .cursor/start.sh`): no-op; the PHP app does not require background services.
 - **Terminal** preset **PHP app**: `php -S 0.0.0.0:8080 -t /workspace` — use port **8080** for smoke tests.
 

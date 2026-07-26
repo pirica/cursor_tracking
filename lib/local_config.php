@@ -60,11 +60,30 @@ function tct_repair_stale_tracking_file_path(array $defaults, array $local): arr
     }
 
     $override = $local['tracking_file'];
+    $default = (string) ($defaults['tracking_file'] ?? '');
+
+    if ($default !== '' && $override !== $default) {
+        $overrideNorm = str_replace('/', '\\', $override);
+        if (stripos($overrideNorm, '\\tracking_cursor\\') !== false) {
+            $local['tracking_file'] = $default;
+            $toSave = [];
+            foreach (tct_editable_config_keys() as $key) {
+                if (isset($local[$key])) {
+                    $toSave[$key] = $local[$key];
+                }
+            }
+            if ($toSave !== []) {
+                tct_save_local_config($toSave);
+            }
+
+            return $local;
+        }
+    }
+
     if ($override !== '' && is_file($override)) {
         return $local;
     }
 
-    $default = (string) ($defaults['tracking_file'] ?? '');
     if ($default === '' || $override === $default) {
         return $local;
     }

@@ -70,7 +70,12 @@ function tct_config_path_rows(array $config): array
         if ($row['kind'] === 'dir' && $row['path'] !== '') {
             $rows[$i]['exists'] = is_dir($row['path']);
         } elseif ($row['kind'] === 'file' && $row['path'] !== '') {
-            $rows[$i]['exists'] = is_file($row['path']);
+            if ($row['key'] === 'tracking_file') {
+                $rows[$i]['exists'] = is_file($row['path'])
+                    || (is_dir(dirname($row['path'])) && is_writable(dirname($row['path'])));
+            } else {
+                $rows[$i]['exists'] = is_file($row['path']);
+            }
         }
     }
 

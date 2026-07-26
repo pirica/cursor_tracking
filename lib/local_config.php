@@ -47,6 +47,49 @@ function tct_sanitize_config_path_value(string $value): string
 }
 
 /**
+ * If overrides still point at an old app folder (e.g. tracking_cursor), use this install's data/tracking.json.
+ *
+ * @param array<string, mixed> $defaults
+ * @param array<string, string> $local
+ * @return array<string, string>
+ */
+function tct_repair_stale_tracking_file_path(array $defaults, array $local): array
+{
+    if (!isset($local['tracking_file'])) {
+        return $local;
+    }
+
+    $override = $local['tracking_file'];
+    if ($override !== '' && is_file($override)) {
+        return $local;
+    }
+
+    $default = (string) ($defaults['tracking_file'] ?? '');
+    if ($default === '' || $override === $default) {
+        return $local;
+    }
+
+    $defaultDir = dirname($default);
+    if (!is_file($default) && !is_dir($defaultDir)) {
+        return $local;
+    }
+
+    $local['tracking_file'] = $default;
+
+    $toSave = [];
+    foreach (tct_editable_config_keys() as $key) {
+        if (isset($local[$key])) {
+            $toSave[$key] = $local[$key];
+        }
+    }
+    if ($toSave !== []) {
+        tct_save_local_config($toSave);
+    }
+
+    return $local;
+}
+
+/**
  * @param array<string, mixed> $defaults from config.php
  * @return array<string, mixed>
  */
@@ -56,6 +99,8 @@ function tct_merge_app_config(array $defaults): array
     if ($local === []) {
         return $defaults;
     }
+
+    $local = tct_repair_stale_tracking_file_path($defaults, $local);
 
     return array_merge($defaults, $local);
 }

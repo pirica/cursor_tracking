@@ -17,14 +17,14 @@ $ruleCount = ($rulesDir !== '' && is_dir($rulesDir)) ? count(tct_scan_rules($con
 
 tct_render_header('Home', 'home', $config);
 ?>
-    <p class="page-lead">Browse Cursor agent chats and Plan mode documents from your local machine.</p>
+    <p class="page-lead">Browse Cursor agent transcripts and Plan mode documents from your local machine.</p>
 
     <div class="hub-cards">
         <a class="hub-card" href="chats.php">
-            <h2>Chats</h2>
+            <h2>Transcripts</h2>
             <p>Agent transcripts, tracking, and transcript viewer.</p>
             <?php if ($chatCount !== null): ?>
-                <p class="hub-card-count"><?= (int) $chatCount ?> chats</p>
+                <p class="hub-card-count"><?= (int) $chatCount ?> transcripts</p>
             <?php else: ?>
                 <p class="hub-card-meta">Transcripts path not configured</p>
             <?php endif; ?>

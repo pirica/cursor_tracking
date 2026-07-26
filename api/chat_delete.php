@@ -24,7 +24,7 @@ $parentId = isset($payload['id']) ? (string) $payload['id'] : '';
 $subId = isset($payload['sub']) ? (string) $payload['sub'] : '';
 if ($parentId === '' || !tct_is_uuid($parentId)) {
     http_response_code(400);
-    echo json_encode(['ok' => false, 'error' => 'Invalid chat id']);
+    echo json_encode(['ok' => false, 'error' => 'Invalid transcript id']);
     exit;
 }
 if ($subId !== '' && !tct_is_uuid($subId)) {

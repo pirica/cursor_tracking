@@ -1,4 +1,4 @@
-# Cursor tracker (chats + plans + rules)
+# Cursor tracker (transcripts + plans + rules)
 
 Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and **project rules**.
 
@@ -9,20 +9,20 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 | Page | URL |
 |------|-----|
 | Home | [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/) |
-| Chats | [http://localhost/cursor_tracking/chats.php](http://localhost/cursor_tracking/chats.php) |
+| Transcripts | [http://localhost/cursor_tracking/chats.php](http://localhost/cursor_tracking/chats.php) |
 | Plans | [http://localhost/cursor_tracking/plans.php](http://localhost/cursor_tracking/plans.php) |
 | Rules | [http://localhost/cursor_tracking/rules.php](http://localhost/cursor_tracking/rules.php) |
 | Config | [http://localhost/cursor_tracking/settings.php](http://localhost/cursor_tracking/settings.php) |
-| Chat detail | `chat.php?id={uuid}` |
+| Transcript detail | `chat.php?id={uuid}` |
 | Plan detail | `plan.php?f={basename}.plan.md` |
 | Rule detail | `rule.php?f={basename}.mdc` |
 
 ## What it does
 
-### Chats
+### Transcripts
 
 - Scans read-only JSONL under your Cursor project `agent-transcripts` folder
-- Lists parent chats, nested subagents, tracking (star, status, notes)
+- Lists parent transcripts, nested subagents, tracking (star, status, notes)
 - Tracking stored in `data/tracking.json`
 
 ### Plans

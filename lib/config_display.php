@@ -22,7 +22,7 @@ function tct_config_path_rows(array $config): array
             'path' => (string) ($config['transcripts_dir'] ?? ''),
             'kind' => 'dir',
             'exists' => null,
-            'note' => 'Cursor chat JSONL files (read-only). Used by Chats.',
+            'note' => 'Cursor agent transcript JSONL files (read-only). Used by Transcripts.',
         ],
         [
             'label' => 'Plan mode files',
@@ -41,7 +41,7 @@ function tct_config_path_rows(array $config): array
             'note' => 'Cursor *.mdc rules (read-only). Used by Rules.',
         ],
         [
-            'label' => 'Chat tracking data',
+            'label' => 'Transcript tracking data',
             'key' => 'tracking_file',
             'path' => (string) ($config['tracking_file'] ?? ''),
             'kind' => 'file',
@@ -105,11 +105,11 @@ function tct_config_url_rows(string $baseUrl): array
 
     return [
         ['label' => 'Home', 'url' => $base . '/index.php'],
-        ['label' => 'Chats list', 'url' => $base . '/chats.php'],
+        ['label' => 'Transcripts list', 'url' => $base . '/chats.php'],
         ['label' => 'Plans list', 'url' => $base . '/plans.php'],
         ['label' => 'Rules list', 'url' => $base . '/rules.php'],
         ['label' => 'Config (this page)', 'url' => $base . '/settings.php'],
-        ['label' => 'Chat detail', 'url' => $base . '/chat.php?id={chat-uuid}'],
+        ['label' => 'Transcript detail', 'url' => $base . '/chat.php?id={chat-uuid}'],
         ['label' => 'Plan detail', 'url' => $base . '/plan.php?f={name}.plan.md'],
         ['label' => 'Rule detail', 'url' => $base . '/rule.php?f={name}.mdc'],
         ['label' => 'Tracking API', 'url' => $base . '/api/tracking.php'],

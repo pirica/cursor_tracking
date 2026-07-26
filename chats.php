@@ -13,7 +13,7 @@ $transcriptsDir = (string) ($config['transcripts_dir'] ?? '');
 $dirMissing = $transcriptsDir === '' || !is_dir($transcriptsDir);
 $chats = $dirMissing ? [] : tct_scan_transcripts($config);
 
-tct_render_header('Chats', 'chats', $config);
+tct_render_header('Transcripts', 'chats', $config);
 ?>
     <?php if ($dirMissing): ?>
         <div class="alert-error">
@@ -34,7 +34,7 @@ tct_render_header('Chats', 'chats', $config);
     </div>
 
     <p class="stats-bar">
-        <span id="visible-count"><?= count($chats) ?></span> of <?= count($chats) ?> chats shown
+        <span id="visible-count"><?= count($chats) ?></span> of <?= count($chats) ?> transcripts shown
     </p>
 
     <div class="table-wrap">
@@ -45,7 +45,7 @@ tct_render_header('Chats', 'chats', $config);
             <thead>
             <tr>
                 <th style="width:2rem" scope="col" aria-label="Star"></th>
-                <?php tct_sortable_th('Chat', 'chat'); ?>
+                <?php tct_sortable_th('Transcript', 'chat'); ?>
                 <?php tct_sortable_th('Activity', 'activity'); ?>
                 <?php tct_sortable_th('Turn', 'turn'); ?>
                 <?php tct_sortable_th('Msgs', 'msgs'); ?>

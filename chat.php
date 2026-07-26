@@ -31,7 +31,7 @@ $fileSize = (!$notFound && $file !== null) ? (filesize($file) ?: 0) : 0;
 
 tct_render_header($displayTitle, 'chats', $config);
 ?>
-    <p class="back-link"><a href="chats.php">← All chats</a></p>
+    <p class="back-link"><a href="chats.php">← All transcripts</a></p>
 
     <?php if ($notFound): ?>
         <div class="alert-error">Transcript not found or invalid id.</div>

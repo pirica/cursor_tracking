@@ -2,6 +2,8 @@
 
 PHP dashboard for local Cursor **agent transcripts**, **Plan mode** files, and **project rules**. Primary target is Windows + Laragon; Cloud Agents use the built-in PHP server (see below).
 
+**Runtime: PHP 7.4+** (e.g. Laragon’s default). Keep all PHP compatible with 7.4 — no PHP 8-only syntax (`match`, nullsafe `?->`, union/`mixed` types, attributes, enums, constructor property promotion, `str_contains` / `str_starts_with` / `str_ends_with`, etc.). Typed properties, `?type`, and `void` return types are fine.
+
 ## Commands
 
 | Task | Command |

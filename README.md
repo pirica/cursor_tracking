@@ -39,6 +39,8 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 ## Setup
 
+**Requires PHP 7.4+** (no Composer extensions beyond what Laragon/Apache already loads, e.g. `com_dotnet` for Explorer on Windows).
+
 1. Laragon serves `www` — app lives at `www/tracking_cursor/`.
 2. Paths: use **[Config](http://localhost/tracking_cursor/settings.php)** to edit and save (stored in `data/local_config.json`), or edit defaults in `config.php`.
    - `transcripts_dir` — your project `agent-transcripts` path

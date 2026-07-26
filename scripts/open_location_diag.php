@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 /**
  * Local diagnostic for Open location (run in browser only).
- * http://localhost/tracking_cursor/scripts/open_location_diag.php
+ * http://localhost/cursor_tracking/scripts/open_location_diag.php
  */
 header('Content-Type: text/plain; charset=utf-8');
 

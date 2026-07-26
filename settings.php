@@ -1,6 +1,11 @@
 <?php
 declare(strict_types=1);
 
+if (isset($_GET['phpinfo'])) {
+    phpinfo();
+    exit;
+}
+
 require_once __DIR__ . '/lib/config_display.php';
 require_once __DIR__ . '/lib/local_config.php';
 require_once __DIR__ . '/lib/layout.php';
@@ -183,6 +188,12 @@ tct_render_header('Config', 'config', $config);
     <p>
         <a class="btn-action" href="scripts/open_location_diag.php" target="_blank" rel="noopener">Run open-location diagnostic</a>
         (opens in a new tab; may launch Explorer once)
+    </p>
+
+    <h2 class="section-heading">PHP environment</h2>
+    <p>
+        <a class="btn-action" href="settings.php?phpinfo=1" target="_blank" rel="noopener">Open phpinfo()</a>
+        (new tab — Laragon/Apache PHP, not CLI)
     </p>
 <?php
 tct_render_footer();

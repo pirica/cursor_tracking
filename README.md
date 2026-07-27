@@ -4,6 +4,20 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 **URL (Laragon):** open in a new browser tab: [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/)
 
+## Screenshots
+
+**Home**
+
+![Cursor tracker home dashboard](docs/cursor_tracking.png)
+
+**Plans list**
+
+![Plans list](docs/plans.png)
+
+**Plan detail**
+
+![Plan detail](docs/plan_detail.png)
+
 ## Pages
 
 | Page | URL |

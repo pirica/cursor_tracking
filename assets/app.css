@@ -91,6 +91,19 @@ a:hover {
   background: var(--bg);
 }
 
+.app-nav-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.55rem;
+}
+
+.app-nav-github img {
+  display: block;
+  width: auto;
+  height: 20px;
+}
+
 .app-header h1 {
   margin: 0;
   font-size: 1.25rem;

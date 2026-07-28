@@ -37,6 +37,16 @@ function tct_render_header(string $pageTitle, string $activeNav, array $config):
                 <a href="<?= tct_h($item['href']) ?>"
                    class="app-nav-link<?= $activeNav === $key ? ' is-active' : '' ?>"><?= tct_h($item['label']) ?></a>
             <?php endforeach; ?>
+            <a href="https://github.com/pirica/cursor_tracking"
+               class="app-nav-link app-nav-github"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="GitHub repository">
+                <img src="assets/GitHub_Invertocat_White_Clearspace.png"
+                     alt=""
+                     width="20"
+                     height="20">
+            </a>
         </nav>
     </div>
 </header>

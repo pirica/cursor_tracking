@@ -712,6 +712,26 @@ table.chat-table tbody tr:hover {
   margin-bottom: 1rem;
 }
 
+.cursor-open-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.cursor-open-links a {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.cursor-open-links img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .hub-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

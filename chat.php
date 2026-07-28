@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/lib/transcript_scan.php';
 require_once __DIR__ . '/lib/transcript_parse.php';
+require_once __DIR__ . '/lib/cursor_open.php';
 require_once __DIR__ . '/lib/layout.php';
 require_once __DIR__ . '/lib/chats_ui.php';
 
@@ -44,6 +45,7 @@ tct_render_header($displayTitle, 'chats', $config);
         <div class="plan-detail-actions row-actions plan-detail-actions-row">
             <?php tct_render_chat_file_actions($config, $parentId, $subId, 'chats.php', 'Delete file'); ?>
         </div>
+        <?php tct_render_cursor_open_links($parentId); ?>
     <?php endif; ?>
     <div class="chat-head">
         <h2 class="page-title"><?= tct_h($displayTitle) ?></h2>

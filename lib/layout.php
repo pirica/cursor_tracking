@@ -29,7 +29,7 @@ function tct_render_header(string $pageTitle, string $activeNav, array $config):
 <header class="app-header">
     <div class="app-header-top">
         <div>
-            <h1 class="app-brand">Cursor tracker</h1>
+            <h1 class="app-brand">Cursor tracking</h1>
             <p class="subtitle"><?= tct_h($project) ?></p>
         </div>
         <nav class="app-nav" aria-label="Main">

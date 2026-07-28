@@ -9,6 +9,7 @@ PHP dashboard for local Cursor **agent transcripts**, **Plan mode** files, and *
 | Task | Command |
 |------|---------|
 | PHP syntax check | `find . -name '*.php' -not -path './data/*' -print0 \| xargs -0 -n1 php -l` |
+| Cursor open links | `php scripts/test_cursor_open.php` |
 | Run locally (Linux / Cloud) | `php -S 127.0.0.1:8080 -t .` then open `http://127.0.0.1:8080/` |
 | Laragon (Windows) | Serve from `www/cursor_tracking/` — see [README.md](README.md) |
 

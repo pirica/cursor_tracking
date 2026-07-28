@@ -45,7 +45,7 @@ tct_render_header($displayTitle, 'chats', $config);
         <div class="plan-detail-actions row-actions plan-detail-actions-row">
             <?php tct_render_chat_file_actions($config, $parentId, $subId, 'chats.php', 'Delete file'); ?>
         </div>
-        <?php tct_render_cursor_open_links($parentId); ?>
+        <?php tct_render_cursor_open_links($parentId, $file, $config); ?>
     <?php endif; ?>
     <div class="chat-head">
         <h2 class="page-title"><?= tct_h($displayTitle) ?></h2>

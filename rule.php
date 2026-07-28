@@ -43,7 +43,7 @@ tct_render_header($pageTitle, 'rules', $config);
             <button type="button" class="btn-action" data-copy-path="<?= tct_h($file) ?>">Copy path</button>
             <button type="button" class="btn-action btn-action-danger" data-rule-delete="<?= tct_h($basename) ?>" data-redirect="rules.php">Delete file</button>
         </div>
-        <?php tct_render_cursor_open_links($basename); ?>
+        <?php tct_render_cursor_open_links($basename, $file, $config); ?>
     <?php endif; ?>
 
     <?php if ($notFound): ?>

@@ -37,7 +37,7 @@ tct_render_header((string) $fm['name'], 'plans', $config);
             <button type="button" class="btn-action" data-copy-path="<?= tct_h($file) ?>">Copy path</button>
             <button type="button" class="btn-action btn-action-danger" data-plan-delete="<?= tct_h($basename) ?>" data-redirect="plans.php">Delete file</button>
         </div>
-        <?php tct_render_cursor_open_links($basename); ?>
+        <?php tct_render_cursor_open_links($basename, $file, $config); ?>
     <?php endif; ?>
 
     <?php if ($notFound): ?>

@@ -1,4 +1,4 @@
-# Cursor tracker (transcripts + plans + rules)
+# Cursor tracking (transcripts + plans + rules)
 
 Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and **project rules**.
 
@@ -8,7 +8,7 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 **Home**
 
-![Cursor tracker home dashboard](docs/cursor_tracking.png)
+![Cursor tracking home dashboard](docs/cursor_tracking.png)
 
 **Plans list**
 

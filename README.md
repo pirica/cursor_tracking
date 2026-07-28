@@ -2,7 +2,7 @@
 
 Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and **project rules**.
 
-**URL (Laragon):** open in a new browser tab: [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/)
+**Local URL:** open in a new browser tab (adjust host/path for your stack): [http://localhost/cursor_tracking/](http://localhost/cursor_tracking/)
 
 ## Screenshots
 
@@ -53,9 +53,9 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 ## Setup
 
-**Requires PHP 7.4+** (no Composer extensions beyond what Laragon/Apache already loads, e.g. `com_dotnet` for Explorer on Windows).
+**Requires PHP 7.4+** (no Composer; on Windows, `com_dotnet` helps Explorer launch from PHP).
 
-1. Laragon serves `www` — app lives at `www/cursor_tracking/`.
+1. Serve this folder with Apache, nginx, or `php -S` (XAMPP, WAMP, or similar).
 2. Paths: use **[Config](http://localhost/cursor_tracking/settings.php)** to edit and save (stored in `data/local_config.json`), or edit defaults in `config.php`.
    - `transcripts_dir` — your project `agent-transcripts` path
    - `plans_dir` — e.g. `C:\Users\YOU\.cursor\plans`
@@ -66,15 +66,15 @@ Local PHP dashboard for **Cursor agent transcripts**, **Plan mode** files, and *
 
 Transcripts and plans may contain secrets. **Local-only** — do not expose on a public host without auth.
 
-## Open location (Windows / Laragon)
+## Open location (Windows)
 
 Browsers cannot open `file://` from `http://localhost`. **Open location** calls PHP to run Explorer.
 
 If Explorer does not appear (common when Apache runs as a Windows **service** without a desktop):
 
 1. **Path is copied** when you click Open location — press **Win+E**, paste into the address bar, Enter.
-2. In Laragon: use **Apache** started from the Laragon app (not a separate Windows service).
-3. In Laragon **PHP → php.ini** (Apache’s PHP), enable **`extension=com_dotnet`** and restart Apache — this improves Explorer launch via `WScript.Shell`.
+2. Start Apache from your local stack’s control panel so it runs in your desktop session (not only as a Windows service).
+3. In the **php.ini used by Apache**, enable **`extension=com_dotnet`** and restart the web server — this improves Explorer launch via `WScript.Shell`.
 
 ## Git
 

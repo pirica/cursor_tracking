@@ -186,7 +186,7 @@ function tct_windows_schtasks_explorer_select(string $realFile): bool
 }
 
 /**
- * Open a folder in the OS file manager (local Laragon / dev only).
+ * Open a folder in the OS file manager (local dev / Windows only).
  */
 function tct_shell_open_folder(string $dir): bool
 {
@@ -262,7 +262,7 @@ function tct_open_location_debug_hints(): array
     if (tct_shell_function_disabled('exec')) {
         $hints[] = 'exec() is disabled in php.ini disable_functions.';
     }
-    $hints[] = 'If Explorer still does not show, Laragon Apache may not be on your desktop session — stop “Apache” Windows service and start Apache only from the Laragon app, or use Copy path.';
+    $hints[] = 'If Explorer still does not show, Apache may not be on your desktop session — stop the Windows “Apache” service and start Apache from your stack (XAMPP/WAMP/etc.), or use Copy path.';
 
     return $hints;
 }

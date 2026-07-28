@@ -74,5 +74,5 @@ if (!$ok) {
 
 echo json_encode([
     'ok' => true,
-    'hint' => 'If Explorer did not appear on your screen, use Copy path or check Laragon is not running Apache as a Windows service.',
+    'hint' => 'If Explorer did not appear on your screen, use Copy path or ensure Apache runs in your desktop session (not only as a Windows service).',
 ]);

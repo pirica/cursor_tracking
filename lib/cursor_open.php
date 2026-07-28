@@ -224,37 +224,12 @@ function tct_cursor_resolve_open_urls(string $rawId, ?string $contentFilePath = 
     return ['', ''];
 }
 
-// #region agent log
-function tct_debug_agent_log(string $location, string $message, array $data, string $hypothesisId): void
-{
-    $logPath = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'it-management' . DIRECTORY_SEPARATOR . 'debug-d37687.log';
-    $payload = [
-        'sessionId' => 'd37687',
-        'timestamp' => (int) round(microtime(true) * 1000),
-        'location' => $location,
-        'message' => $message,
-        'data' => $data,
-        'hypothesisId' => $hypothesisId,
-    ];
-    @file_put_contents($logPath, json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "\n", FILE_APPEND);
-}
-// #endregion
-
 /**
  * @param array<string, mixed>|null $config
  */
 function tct_render_cursor_open_links(string $rawId, ?string $contentFilePath = null, ?array $config = null): void
 {
     [$agentsUrl, $cursorUrl] = tct_cursor_resolve_open_urls($rawId, $contentFilePath, $config);
-
-    // #region agent log
-    tct_debug_agent_log('cursor_open.php:tct_render_cursor_open_links', 'resolve open urls', [
-        'rawId' => $rawId,
-        'hasContentFile' => $contentFilePath !== null && $contentFilePath !== '',
-        'agentsUrl' => $agentsUrl,
-        'cursorUrl' => $cursorUrl,
-    ], 'A');
-    // #endregion
 
     if ($agentsUrl === '' || $cursorUrl === '') {
         return;

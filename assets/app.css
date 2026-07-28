@@ -886,6 +886,27 @@ table.chat-table tbody tr:hover {
   margin-top: 0.35rem;
 }
 
+.php-env-summary {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  max-width: 48rem;
+}
+
+.php-env-summary p {
+  margin: 0.35rem 0;
+}
+
+.php-env-summary p:first-child {
+  margin-top: 0;
+}
+
+.php-env-summary p:last-child {
+  margin-bottom: 0;
+}
+
 .block-note {
   margin: 0 0 0.75rem;
 }

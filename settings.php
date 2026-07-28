@@ -2,12 +2,14 @@
 declare(strict_types=1);
 
 if (isset($_GET['phpinfo'])) {
-    phpinfo();
+    require_once __DIR__ . '/lib/php_environment.php';
+    tct_render_phpinfo_page();
     exit;
 }
 
 require_once __DIR__ . '/lib/config_display.php';
 require_once __DIR__ . '/lib/local_config.php';
+require_once __DIR__ . '/lib/php_environment.php';
 require_once __DIR__ . '/lib/layout.php';
 
 $config = require __DIR__ . '/config.php';
@@ -152,7 +154,7 @@ tct_render_header('Config', 'config', $config);
         </table>
     </div>
 
-    <h2 class="section-heading">Local URLs (Laragon)</h2>
+    <h2 class="section-heading">Local URLs</h2>
     <p class="config-note block-note">Base URL detected from this request: <code><?= tct_h($baseUrl) ?></code></p>
     <div class="table-wrap config-section">
         <table class="chat-table config-table">
@@ -182,8 +184,8 @@ tct_render_header('Config', 'config', $config);
     <h2 class="section-heading">Open location (Windows)</h2>
     <p class="page-lead">
         If <strong>Open location</strong> does nothing, the path is still copied when you click it.
-        Paste into Explorer with <kbd>Win+E</kbd>. Laragon Apache must run from the Laragon app (not a Windows service).
-        Enable <code>extension=com_dotnet</code> in Laragon <strong>PHP → php.ini</strong> and restart Apache.
+        Paste into Explorer with <kbd>Win+E</kbd>. On Windows, Apache should run in your interactive desktop session (not only as a background service).
+        Enable <code>extension=com_dotnet</code> in the <strong>Apache PHP php.ini</strong> and restart the web server.
     </p>
     <p>
         <a class="btn-action" href="scripts/open_location_diag.php" target="_blank" rel="noopener">Run open-location diagnostic</a>
@@ -191,9 +193,10 @@ tct_render_header('Config', 'config', $config);
     </p>
 
     <h2 class="section-heading">PHP environment</h2>
+    <?php tct_render_php_environment_summary(); ?>
     <p>
-        <a class="btn-action" href="settings.php?phpinfo=1" target="_blank" rel="noopener">Open phpinfo()</a>
-        (new tab — Laragon/Apache PHP, not CLI)
+        <a href="settings.php?phpinfo=1" target="_blank" rel="noopener">Open phpinfo()</a>
+        (new tab — web server PHP, not CLI)
     </p>
 <?php
 tct_render_footer();
